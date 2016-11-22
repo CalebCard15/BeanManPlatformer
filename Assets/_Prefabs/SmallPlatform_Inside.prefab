@@ -21,9 +21,9 @@ GameObject:
   - 4: {fileID: 4000010388120458}
   - 212: {fileID: 212000012078316752}
   - 61: {fileID: 61000012743126076}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SmallPlatform_Inside
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1783731295
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4288727fb2468774bb7a92192e97c91b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

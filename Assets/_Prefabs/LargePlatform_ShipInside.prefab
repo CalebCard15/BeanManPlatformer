@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000010625656176}
   - 212: {fileID: 212000011357447846}
   - 61: {fileID: 61000013656500380}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Float_Platform1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - 4: {fileID: 4000010028470948}
   - 212: {fileID: 212000012148351024}
   - 61: {fileID: 61000013928652182}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Float_Platform2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,9 +53,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013101851856}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: LargePlatform_ShipInside
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
