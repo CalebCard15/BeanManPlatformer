@@ -1,23 +1,24 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class ScoreShadow : MonoBehaviour
 {
-	public GameObject guiCopy;		// A copy of the score.
+	public Text guiCopy;		// A copy of the score.
+	public Text shadowText;		// The text for the drop shadow
 
 
-	void Awake()
+	void Start()
 	{
-		// Set the position to be slightly down and behind the other gui.
-		Vector3 behindPos = transform.position;
-		behindPos = new Vector3(guiCopy.transform.position.x, guiCopy.transform.position.y-0.005f, guiCopy.transform.position.z-1);
-		transform.position = behindPos;
+		guiCopy = GameObject.Find("Score").GetComponent<Text>();
+		shadowText = GetComponent<Text>();
+
 	}
 
 
 	void Update ()
 	{
 		// Set the text to equal the copy's text.
-		GetComponent<GUIText>().text = guiCopy.GetComponent<GUIText>().text;
+		shadowText.text = guiCopy.text;
 	}
 }

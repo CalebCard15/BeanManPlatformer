@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class LayBombs : MonoBehaviour
@@ -10,13 +11,13 @@ public class LayBombs : MonoBehaviour
 	public GameObject bomb;				// Prefab of the bomb.
 
 
-	private GUITexture bombHUD;			// Heads up display of whether the player has a bomb or not.
+	private Image bombHUD;			// Heads up display of whether the player has a bomb or not.
 
 
 	void Awake ()
 	{
 		// Setting up the reference.
-		bombHUD = GameObject.Find("ui_bombHUD").GetComponent<GUITexture>();
+		bombHUD = GameObject.Find("ui_bombHUD").GetComponent<Image>();
 	}
 
 
