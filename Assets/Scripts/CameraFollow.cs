@@ -78,6 +78,8 @@ public class CameraFollow : MonoBehaviour
 		transform.position = new Vector3(targetX, targetY, transform.position.z);
 	}
 
+	//Used when the player is teleporting to make the camera move to the player faster
+	//This makes sure the player can see where they are going because the teleport moves the player very quickl
     void TrackTeleport()
     {
         // By default the target x and y coordinates of the camera are it's current x and y coordinates.

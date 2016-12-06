@@ -78,7 +78,7 @@ public class PlayerShip : MonoBehaviour {
 	private void EndGame()
 	{
 		//load the first level
-		SceneManager.LoadScene("Level");
+		SceneManager.LoadScene(4);
 	}
 
 	private void SetBoundaries()

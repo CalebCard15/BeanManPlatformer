@@ -11,6 +11,7 @@ public class PlayerControl : MonoBehaviour
 
 
     public bool isTeleporting;              // Bool if the player is teleporting or not
+	public bool canDoubleJump;				// Bool if the player can double jump
 	public float moveForce = 365f;			// Amount of force added to move the player left and right.
 	public float maxSpeed = 5f;				// The fastest the player can travel in the x axis.
 	public AudioClip[] jumpClips;			// Array of clips for when the player jumps.
@@ -42,11 +43,16 @@ public class PlayerControl : MonoBehaviour
 		// The player is grounded if a linecast to the groundcheck position hits anything on the ground layer.
         if(!isTeleporting)
 		    grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
-        if(grounded)
-            jumpsInAir = 0;
 
-		// If the jump button is pressed and the player is grounded then the player should jump.
-        if((Input.GetButtonDown("Jump") && grounded) || (Input.GetButtonDown("Jump") && jumpsInAir < 2 && isTeleporting))
+		// If the player is grounded they can't double jump
+        if(grounded)
+		{
+			canDoubleJump = false;
+			jumpsInAir = 0;
+		}
+
+		// If the jump button is pressed and the player is grounded then the player should jump. Or if the player has his double jump avaliable 
+		if((Input.GetButtonDown("Jump") && grounded) || (Input.GetButtonDown("Jump") && jumpsInAir < 2 && canDoubleJump))
 			jump = true;
 	}
 
@@ -148,12 +154,13 @@ public class PlayerControl : MonoBehaviour
 			return i;
 	}
 
-    //Sets the camera to teleport watching mode...
+    //Sets the camera to teleport watching mode... also makes it so the player can double jump after teleporting
     public IEnumerator Teleport()
     {
         isTeleporting = true;
-        grounded = true;
-        yield return new WaitForSeconds(.5f);
+		canDoubleJump = true;
+		jumpsInAir = 1;
+        yield return new WaitForSeconds(.3f); //This sets how long the player has before they loose their ability to double jump
         isTeleporting = false;
 
 
