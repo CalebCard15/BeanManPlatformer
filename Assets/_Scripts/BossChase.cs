@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class BossChase : MonoBehaviour {
 
 	public GameObject explosionEffect;
+
+	public float moveSpeed = 5;
 
 
 	// Use this for initialization
@@ -13,18 +16,23 @@ public class BossChase : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
 	}
 
-	void OnCollisionEnter2D(Collision2D col)
+	void OnTriggerEnter2D(Collider2D col)
 	{
-		if(col.collider.tag == "Player")
+		print(col.tag); 
+		if(col.tag == "Player")
 		{
-			col.collider.GetComponent<PlayerHealth>().health = 0f;
+			Instantiate(explosionEffect, col.transform.position, Quaternion.identity);
+			Destroy(col.gameObject);
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
 		}
 		else
 		{
-			Instantiate(explosionEffect, col.collider.transform.position, Quaternion.identity);
+			Instantiate(explosionEffect, col.transform.position, Quaternion.identity);
+			Destroy(col.gameObject);
 		}
 	}
 }
