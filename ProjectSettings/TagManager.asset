@@ -16,6 +16,8 @@ TagManager:
   - UFO
   - Boss
   - Tutorial
+  - Fire
+  - BossExit
   layers:
   - Default
   - TransparentFX
